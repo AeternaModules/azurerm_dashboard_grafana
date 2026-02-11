@@ -35,13 +35,13 @@ EOT
     location                               = string
     name                                   = string
     resource_group_name                    = string
-    api_key_enabled                        = optional(bool, false)
-    auto_generated_domain_name_label_scope = optional(string, "TenantReuse")
-    deterministic_outbound_ip_enabled      = optional(bool, false)
-    public_network_access_enabled          = optional(bool, true)
-    sku                                    = optional(string, "Standard")
+    api_key_enabled                        = optional(bool)   # Default: false
+    auto_generated_domain_name_label_scope = optional(string) # Default: "TenantReuse"
+    deterministic_outbound_ip_enabled      = optional(bool)   # Default: false
+    public_network_access_enabled          = optional(bool)   # Default: true
+    sku                                    = optional(string) # Default: "Standard"
     tags                                   = optional(map(string))
-    zone_redundancy_enabled                = optional(bool, false)
+    zone_redundancy_enabled                = optional(bool) # Default: false
     azure_monitor_workspace_integrations = optional(object({
       resource_id = string
     }))
@@ -50,14 +50,14 @@ EOT
       type         = string
     }))
     smtp = optional(object({
-      enabled                   = optional(bool, false)
+      enabled                   = optional(bool) # Default: false
       from_address              = string
-      from_name                 = optional(string, "Azure Managed Grafana Notification")
+      from_name                 = optional(string) # Default: "Azure Managed Grafana Notification"
       host                      = string
       password                  = string
       start_tls_policy          = string
       user                      = string
-      verification_skip_enabled = optional(bool, false)
+      verification_skip_enabled = optional(bool) # Default: false
     }))
   }))
 }
