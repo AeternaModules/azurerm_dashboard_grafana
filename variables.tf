@@ -12,6 +12,7 @@ Optional:
     - deterministic_outbound_ip_enabled
     - public_network_access_enabled
     - sku
+    - sku_size
     - tags
     - zone_redundancy_enabled
     - azure_monitor_workspace_integrations (block):
@@ -40,6 +41,7 @@ EOT
     deterministic_outbound_ip_enabled      = optional(bool)   # Default: false
     public_network_access_enabled          = optional(bool)   # Default: true
     sku                                    = optional(string) # Default: "Standard"
+    sku_size                               = optional(string) # Default: "X1"
     tags                                   = optional(map(string))
     zone_redundancy_enabled                = optional(bool) # Default: false
     azure_monitor_workspace_integrations = optional(object({

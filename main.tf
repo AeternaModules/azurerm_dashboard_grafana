@@ -10,6 +10,7 @@ resource "azurerm_dashboard_grafana" "dashboard_grafanas" {
   deterministic_outbound_ip_enabled      = each.value.deterministic_outbound_ip_enabled
   public_network_access_enabled          = each.value.public_network_access_enabled
   sku                                    = each.value.sku
+  sku_size                               = each.value.sku_size
   tags                                   = each.value.tags
   zone_redundancy_enabled                = each.value.zone_redundancy_enabled
 
