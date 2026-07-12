@@ -1,3 +1,7 @@
+output "dashboard_grafanas_id" {
+  description = "Map of id values across all dashboard_grafanas, keyed the same as var.dashboard_grafanas"
+  value       = { for k, v in azurerm_dashboard_grafana.dashboard_grafanas : k => v.id }
+}
 output "dashboard_grafanas_api_key_enabled" {
   description = "Map of api_key_enabled values across all dashboard_grafanas, keyed the same as var.dashboard_grafanas"
   value       = { for k, v in azurerm_dashboard_grafana.dashboard_grafanas : k => v.api_key_enabled }
