@@ -15,7 +15,7 @@ resource "azurerm_dashboard_grafana" "dashboard_grafanas" {
   zone_redundancy_enabled                = each.value.zone_redundancy_enabled
 
   dynamic "azure_monitor_workspace_integrations" {
-    for_each = each.value.azure_monitor_workspace_integrations != null ? [each.value.azure_monitor_workspace_integrations] : []
+    for_each = each.value.azure_monitor_workspace_integrations != null ? each.value.azure_monitor_workspace_integrations : []
     content {
       resource_id = azure_monitor_workspace_integrations.value.resource_id
     }

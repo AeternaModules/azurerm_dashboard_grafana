@@ -44,9 +44,9 @@ EOT
     sku_size                               = optional(string) # Default: "X1"
     tags                                   = optional(map(string))
     zone_redundancy_enabled                = optional(bool) # Default: false
-    azure_monitor_workspace_integrations = optional(object({
+    azure_monitor_workspace_integrations = optional(list(object({
       resource_id = string
-    }))
+    })))
     identity = optional(object({
       identity_ids = optional(set(string))
       type         = string
