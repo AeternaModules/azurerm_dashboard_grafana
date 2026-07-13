@@ -36,14 +36,14 @@ EOT
     location                               = string
     name                                   = string
     resource_group_name                    = string
-    api_key_enabled                        = optional(bool)   # Default: false
-    auto_generated_domain_name_label_scope = optional(string) # Default: "TenantReuse"
-    deterministic_outbound_ip_enabled      = optional(bool)   # Default: false
-    public_network_access_enabled          = optional(bool)   # Default: true
-    sku                                    = optional(string) # Default: "Standard"
-    sku_size                               = optional(string) # Default: "X1"
+    api_key_enabled                        = optional(bool)
+    auto_generated_domain_name_label_scope = optional(string)
+    deterministic_outbound_ip_enabled      = optional(bool)
+    public_network_access_enabled          = optional(bool)
+    sku                                    = optional(string)
+    sku_size                               = optional(string)
     tags                                   = optional(map(string))
-    zone_redundancy_enabled                = optional(bool) # Default: false
+    zone_redundancy_enabled                = optional(bool)
     azure_monitor_workspace_integrations = optional(list(object({
       resource_id = string
     })))
@@ -52,14 +52,14 @@ EOT
       type         = string
     }))
     smtp = optional(object({
-      enabled                   = optional(bool) # Default: false
+      enabled                   = optional(bool)
       from_address              = string
-      from_name                 = optional(string) # Default: "Azure Managed Grafana Notification"
+      from_name                 = optional(string)
       host                      = string
       password                  = string
       start_tls_policy          = string
       user                      = string
-      verification_skip_enabled = optional(bool) # Default: false
+      verification_skip_enabled = optional(bool)
     }))
   }))
 }
