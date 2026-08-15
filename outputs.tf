@@ -32,7 +32,7 @@ output "dashboard_grafanas_grafana_version" {
 }
 output "dashboard_grafanas_identity" {
   description = "Map of identity values across all dashboard_grafanas, keyed the same as var.dashboard_grafanas"
-  value       = { for k, v in azurerm_dashboard_grafana.dashboard_grafanas : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_dashboard_grafana.dashboard_grafanas : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "dashboard_grafanas_location" {
   description = "Map of location values across all dashboard_grafanas, keyed the same as var.dashboard_grafanas"
@@ -64,7 +64,7 @@ output "dashboard_grafanas_sku_size" {
 }
 output "dashboard_grafanas_smtp" {
   description = "Map of smtp values across all dashboard_grafanas, keyed the same as var.dashboard_grafanas"
-  value       = { for k, v in azurerm_dashboard_grafana.dashboard_grafanas : k => v.smtp if v.smtp != null && length(v.smtp) > 0 }
+  value       = { for k, v in azurerm_dashboard_grafana.dashboard_grafanas : k => one(v.smtp) if v.smtp != null && length(v.smtp) > 0 }
   sensitive   = true
 }
 output "dashboard_grafanas_tags" {
